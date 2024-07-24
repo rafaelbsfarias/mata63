@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Projeto</title>
+    <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        .content-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+        .project-image {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 flex flex-col min-h-screen">
+    <!-- Top Navigation Bar -->
+    <nav class="bg-white shadow-lg p-4 flex justify-between items-center">
+        <a href="#" class="text-2xl font-semibold text-gray-900">InvestPlatform</a>
+        <div>
+            <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Início</a>
+            <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Sobre</a>
+            <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Como Funciona</a>
+            <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Projetos</a>
+            <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Investir Agora</a>
+            <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Contato</a>
+        </div>
+    </nav>
+
+    <!-- Content Container -->
+    <div class="content-container bg-white shadow-md rounded-lg p-6 mt-6">
+        <!-- Back Button -->
+        <div class="mb-4">
+            <button class="text-gray-600 hover:text-gray-900" onclick="window.history.back();">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+                Voltar
+            </button>
+        </div>
+        
+        <!-- Project Header -->
+        <header class="mb-6">
+            <div class="project-image mb-4" style="background-image: url('https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"></div>
+            <h1 class="text-3xl font-semibold mb-2">Título do Projeto</h1>
+            <p class="text-gray-700">Descrição breve do projeto, destacando os principais pontos e objetivos.</p>
+        </header>
+        
+        <!-- Project Details Section -->
+        <section class="mb-6">
+            <h2 class="text-2xl font-semibold mb-4">Detalhes do Projeto</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Localização</h3>
+                    <div class="h-64 bg-gray-200 rounded-lg mb-4">
+                        <!-- Interactive map placeholder -->
+                        <img src="https://source.unsplash.com/400x300/?map" alt="Mapa do Projeto" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <p class="text-gray-700">São Paulo, SP</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Informações Financeiras</h3>
+                    <p class="text-gray-700 mb-2">Custo Total do Projeto: R$ 1.000.000</p>
+                    <p class="text-gray-700 mb-2">Preço por Quota: R$ 150.000</p>
+                    <p class="text-gray-700 mb-2">Quotas Disponíveis: 10</p>
+                    <p class="text-gray-700 mb-2">ROI Esperado: 15%</p>
+                    <p class="text-gray-700">Cronograma: Janeiro 2023 - Dezembro 2023</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Detailed Description -->
+        <section class="mb-6">
+            <h2 class="text-2xl font-semibold mb-4">Descrição Detalhada</h2>
+            <p class="text-gray-700 mb-4">Aqui vai uma descrição abrangente do projeto, destacando seus objetivos, benefícios e pontos únicos de venda.</p>
+        </section>
+        
+        <!-- Financial Information -->
+        <section class="mb-6">
+            <h2 class="text-2xl font-semibold mb-4">Informações Financeiras</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Divisão do Orçamento</h3>
+                    <p class="text-gray-700 mb-2">Detalhes sobre como o orçamento será distribuído ao longo do projeto.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Fontes de Financiamento</h3>
+                    <p class="text-gray-700 mb-2">Informações sobre as fontes de financiamento e suporte financeiro.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Projeções Financeiras</h3>
+                    <p class="text-gray-700 mb-2">Projeções financeiras detalhadas que verificam a viabilidade do projeto.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Legal Documentation -->
+        <section class="mb-6">
+            <h2 class="text-2xl font-semibold mb-4">Documentação Legal</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Licenças e Aprovações</h3>
+                    <p class="text-gray-700 mb-2">Documentos legais relevantes, incluindo permissões e aprovações.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Escrituras de Propriedade</h3>
+                    <p class="text-gray-700 mb-2">Documentos de propriedade e informações legais.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Contratos com Empreiteiros e Fornecedores</h3>
+                    <p class="text-gray-700 mb-2">Contratos detalhados com empreiteiros e fornecedores.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Developer Profile -->
+        <section class="mb-6">
+            <h2 class="text-2xl font-semibold mb-4">Perfil do Desenvolvedor</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Nome e Contato</h3>
+                    <p class="text-gray-700 mb-2">Nome: João Silva</p>
+                    <p class="text-gray-700 mb-2">Email: joao@desenvolvedor.com</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Afiliacão da Empresa</h3>
+                    <p class="text-gray-700 mb-2">Empresa: Desenvolvedora XYZ</p>
+                    <p class="text-gray-700 mb-2">Projetos Anteriores: Diversos projetos de sucesso no setor imobiliário.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Supporting Materials -->
+        <section class="mb-6">
+            <h2 class="text-2xl font-semibold mb-4">Materiais de Apoio</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="h-64 bg-gray-200 rounded-lg">
+                    <img src="https://source.unsplash.com/400x300/?blueprint" alt="Planta do Projeto" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div class="h-64 bg-gray-200 rounded-lg">
+                    <img src="https://source.unsplash.com/400x300/?construction" alt="Imagem da Construção" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div class="h-64 bg-gray-200 rounded-lg">
+                    <img src="https://source.unsplash.com/400x300/?real-estate" alt="Imagem do Projeto" class="w-full h-full object-cover rounded-lg">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Call to Action -->
+        <div class="flex justify-end space-x-4">
+            <button class="bg-blue-600 text-white py-2 px-4 rounded-lg">Investir Agora</button>
+            <button class="bg-gray-600 text-white py-2 px-4 rounded-lg">Contactar Desenvolvedor</button>
+        </div>
+    </div>
+
+    <!-- Tailwind CSS from CDN -->
+    <script src="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.js"></script>
+</body>
+</html>

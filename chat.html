@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat com Desenvolvedor</title>
+    <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        .chat-container {
+            max-height: calc(100vh - 200px);
+            overflow-y: auto;
+        }
+        .message {
+            max-width: 60%;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .message.investor {
+            background-color: #e2f0ff;
+            align-self: flex-end;
+        }
+        .message.developer {
+            background-color: #f0e2ff;
+            align-self: flex-start;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 flex flex-col h-screen">
+    <!-- Top Navigation Bar -->
+    <nav class="bg-white shadow-lg p-4 flex justify-between items-center">
+        <a href="#" class="text-2xl font-semibold text-gray-900">InvestPlatform</a>
+        <div>
+            <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Início</a>
+            <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Sobre</a>
+            <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Como Funciona</a>
+            <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Projetos</a>
+            <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Investir Agora</a>
+            <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Contato</a>
+        </div>
+    </nav>
+    
+    <div class="flex-1 flex overflow-hidden">
+        <!-- Main Chat Area -->
+        <div class="flex-1 flex flex-col">
+            <!-- Chat Header -->
+            <header class="bg-white shadow-lg p-4 flex items-center justify-between">
+                <div class="flex items-center">
+                    <button class="text-gray-600 hover:text-gray-900 mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <img src="https://source.unsplash.com/50x50/?profile" alt="Logo do Projeto" class="rounded-full w-12 h-12 mr-4">
+                    <div>
+                        <h2 class="text-2xl font-semibold">Título do Projeto</h2>
+                        <p class="text-gray-600">Nome do Desenvolvedor / Empresa</p>
+                    </div>
+                </div>
+                <button class="text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586m0 0L3 9.414M8.586 9L21 21" />
+                    </svg>
+                </button>
+            </header>
+
+            <!-- Chat Area -->
+            <div class="chat-container bg-white shadow-md flex-1 p-4 flex flex-col space-y-4">
+                <!-- Example messages -->
+                <div class="message investor self-end">
+                    <p>Olá, gostaria de saber mais sobre o projeto.</p>
+                    <span class="text-gray-500 text-xs">10:30 AM</span>
+                </div>
+                <div class="message developer self-start">
+                    <p>Claro! Estou à disposição para esclarecer suas dúvidas.</p>
+                    <span class="text-gray-500 text-xs">10:32 AM</span>
+                </div>
+            </div>
+
+            <!-- Input Box -->
+            <div class="bg-white p-4 shadow-md flex items-center space-x-4">
+                <button class="text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586m0 0L3 9.414M8.586 9L21 21" />
+                    </svg>
+                </button>
+                <button class="text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                </button>
+                <input type="text" placeholder="Digite sua mensagem..." class="flex-1 p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+                <button class="bg-blue-600 text-white p-2 rounded-lg">Enviar</button>
+            </div>
+        </div>
+
+        <!-- Sidebar with Investment Summary -->
+        <aside class="w-1/4 bg-white shadow-lg p-6 flex flex-col overflow-y-auto">
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold mb-4">Resumo do Investimento</h2>
+                <p class="text-xl font-bold mb-2">Título do Projeto</p>
+                <p class="text-gray-700 mb-2">Localização: São Paulo, SP</p>
+                <p class="text-gray-700 mb-2">Descrição breve do projeto, destacando os principais pontos e objetivos.</p>
+            </div>
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold mb-2">Métricas Principais</h3>
+                <p class="text-gray-700">Capital Arrecadado: R$ 1.000.000</p>
+                <p class="text-gray-700">Quotas Disponíveis: 10</p>
+                <p class="text-gray-700">Preço por Quota: R$ 150.000</p>
+                <p class="text-gray-700">ROI Esperado: 15%</p>
+            </div>
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold mb-2">Cronograma</h3>
+                <p class="text-gray-700">Início do Projeto: Janeiro 2023</p>
+                <p class="text-gray-700">Conclusão Estimada: Dezembro 2023</p>
+                <p class="text-gray-700">Marcos Importantes: Aprovação, Construção, Finalização</p>
+            </div>
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold mb-2">Informações do Desenvolvedor</h3>
+                <p class="text-gray-700">Nome: João Silva</p>
+                <p class="text-gray-700">Email: joao@desenvolvedor.com</p>
+                <p class="text-gray-700">Bio: João é um desenvolvedor com 10 anos de experiência no setor imobiliário.</p>
+            </div>
+            <div>
+                <img src="https://source.unsplash.com/400x300/?real-estate" alt="Imagem do Projeto" class="rounded-lg">
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tailwind CSS from CDN -->
+    <script src="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.js"></script>
+    <script>
+        // Simulate chat functionality
+        document.querySelector('button.bg-blue-600').addEventListener('click', function() {
+            const input = document.querySelector('input[type="text"]');
+            const message = input.value;
+            if (message) {
+                const messageContainer = document.createElement('div');
+                messageContainer.className = 'message investor self-end';
+                messageContainer.innerHTML = `<p>${message}</p><span class="text-gray-500 text-xs">Agora</span>`;
+                document.querySelector('.chat-container').appendChild(messageContainer);
+                input.value = '';
+            }
+        });
+    </script>
+</body>
+</html>

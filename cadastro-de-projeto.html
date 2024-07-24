@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Desenvolvedor de Projetos</title>
+    <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        .progress-bar {
+            height: 4px;
+            background-color: #e2e8f0;
+            border-radius: 2px;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #4299e1;
+            border-radius: 2px;
+            width: 0%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Barra de Navegação -->
+    <nav class="bg-white shadow-lg">
+        <div class="container mx-auto p-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-semibold text-gray-900">InvestPlatform</a>
+            <div>
+                <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Início</a>
+                <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Sobre</a>
+                <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Como Funciona</a>
+                <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Projetos</a>
+                <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Investir Agora</a>
+                <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Contato</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Formulário de Registro -->
+    <div class="container mx-auto py-8">
+        <div class="bg-white shadow-md rounded-lg p-8">
+            <h2 class="text-3xl font-semibold mb-6">Registro de Desenvolvedor de Projetos</h2>
+            
+            <!-- Indicadores de Progresso -->
+            <div class="mb-6">
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" id="progress-bar-fill"></div>
+                </div>
+            </div>
+            
+            <form id="registration-form">
+                <!-- Informações Pessoais -->
+                <div id="step-1" class="step">
+                    <h3 class="text-2xl font-semibold mb-4">Informações Pessoais</h3>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Nome</label>
+                        <input type="text" name="nome" class="w-full p-2 border-2 border-gray-300 rounded-lg" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Email</label>
+                        <input type="email" name="email" class="w-full p-2 border-2 border-gray-300 rounded-lg" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Telefone</label>
+                        <input type="tel" name="telefone" class="w-full p-2 border-2 border-gray-300 rounded-lg" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Empresa</label>
+                        <input type="text" name="empresa" class="w-full p-2 border-2 border-gray-300 rounded-lg" required>
+                    </div>
+                    <button type="button" class="bg-blue-600 text-white p-2 rounded-lg" onclick="nextStep()">Próximo</button>
+                </div>
+                
+                <!-- Detalhes do Projeto -->
+                <div id="step-2" class="step hidden">
+                    <h3 class="text-2xl font-semibold mb-4">Detalhes do Projeto</h3>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Título do Projeto</label>
+                        <input type="text" name="titulo_projeto" class="w-full p-2 border-2 border-gray-300 rounded-lg" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Descrição do Projeto</label>
+                        <textarea name="descricao_projeto" class="w-full p-2 border-2 border-gray-300 rounded-lg" required></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Localização do Imóvel</label>
+                        <input type="text" name="localizacao_imovel" class="w-full p-2 border-2 border-gray-300 rounded-lg" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Custo Total do Projeto</label>
+                        <input type="number" name="custo_total" class="w-full p-2 border-2 border-gray-300 rounded-lg" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Retorno Esperado sobre Investimento (ROI)</label>
+                        <input type="text" name="roi" class="w-full p-2 border-2 border-gray-300 rounded-lg" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Prazo para Conclusão</label>
+                        <input type="text" name="prazo_conclusao" class="w-full p-2 border-2 border-gray-300 rounded-lg" required>
+                    </div>
+                    <button type="button" class="bg-blue-600 text-white p-2 rounded-lg" onclick="previousStep()">Anterior</button>
+                    <button type="button" class="bg-blue-600 text-white p-2 rounded-lg" onclick="nextStep()">Próximo</button>
+                </div>
+                
+                <!-- Informações Financeiras -->
+                <div id="step-3" class="step hidden">
+                    <h3 class="text-2xl font-semibold mb-4">Informações Financeiras</h3>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Divisão do Orçamento</label>
+                        <input type="file" name="orcamento" class="w-full p-2 border-2 border-gray-300 rounded-lg" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Projeções Financeiras</label>
+                        <input type="file" name="projecoes_financeiras" class="w-full p-2 border-2 border-gray-300 rounded-lg" required>
+                    </div>
+                    <button type="button" class="bg-blue-600 text-white p-2 rounded-lg" onclick="previousStep()">Anterior</button>
+                    <button type="button" class="bg-blue-600 text-white p-2 rounded-lg" onclick="nextStep()">Próximo</button>
+                </div>
+                
+                <!-- Documentação Legal -->
+                <div id="step-4" class="step hidden">
+                    <h3 class="text-2xl font-semibold mb-4">Documentação Legal</h3>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Licenças e Aprovações</label>
+                        <input type="file" name="licencas_aprovacoes" class="w-full p-2 border-2 border-gray-300 rounded-lg" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Escrituras de Propriedade</label>
+                        <input type="file" name="escrituras_propriedade" class="w-full p-2 border-2 border-gray-300 rounded-lg" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Contratos com Empreiteiros e Fornecedores</label>
+                        <input type="file" name="contratos" class="w-full p-2 border-2 border-gray-300 rounded-lg" required>
+                    </div>
+                    <button type="button" class="bg-blue-600 text-white p-2 rounded-lg" onclick="previousStep()">Anterior</button>
+                    <button type="button" class="bg-blue-600 text-white p-2 rounded-lg" onclick="nextStep()">Próximo</button>
+                </div>
+                
+                <!-- Materiais de Apoio -->
+                <div id="step-5" class="step hidden">
+                    <h3 class="text-2xl font-semibold mb-4">Materiais de Apoio</h3>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Imagens</label>
+                        <input type="file" name="imagens" class="w-full p-2 border-2 border-gray-300 rounded-lg" multiple>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Plantas</label>
+                        <input type="file" name="plantas" class="w-full p-2 border-2 border-gray-300 rounded-lg" multiple>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Vídeos</label>
+                        <input type="file" name="videos" class="w-full p-2 border-2 border-gray-300 rounded-lg" multiple>
+                    </div>
+                    <button type="button" class="bg-blue-600 text-white p-2 rounded-lg" onclick="previousStep()">Anterior</button>
+                    <button type="button" class="bg-blue-600 text-white p-2 rounded-lg" onclick="nextStep()">Próximo</button>
+                </div>
+
+                <!-- Confirmação de Submissão -->
+                <div id="step-6" class="step hidden">
+                    <h3 class="text-2xl font-semibold mb-4">Confirmação de Submissão</h3>
+                    <p class="mb-4">Revise as informações fornecidas antes de enviar.</p>
+                    <button type="button" class="bg-blue-600 text-white p-2 rounded-lg" onclick="previousStep()">Anterior</button>
+                    <button type="submit" class="bg-green-600 text-white p-2 rounded-lg">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Tailwind CSS from CDN -->
+    <script src="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.js"></script>
+    <script>
+        const steps = document.querySelectorAll('.step');
+        let currentStep = 0;
+
+        function updateProgressBar() {
+            const progressBarFill = document.getElementById('progress-bar-fill');
+            const progress = (currentStep / (steps.length - 1)) * 100;
+            progressBarFill.style.width = progress + '%';
+        }
+
+        function showStep(stepIndex) {
+            steps.forEach((step, index) => {
+                step.classList.toggle('hidden', index !== stepIndex);
+            });
+            updateProgressBar();
+        }
+
+        function nextStep() {
+            if (currentStep < steps.length - 1) {
+                currentStep++;
+                showStep(currentStep);
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 0) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        }
+
+        document.getElementById('registration-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Formulário enviado com sucesso!');
+            // Implement form submission logic here
+        });
+
+        showStep(currentStep);
+    </script>
+</body>
+</html>
