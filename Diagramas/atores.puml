@@ -1,0 +1,23 @@
+@startuml
+actor Investidor
+actor "Desenvolvedor de Projetos" as DP
+actor Administrador
+
+Investidor --> (Registro/Login)
+Investidor --> (Acesso BI)
+Investidor --> (Realizar Pagamento)
+Investidor --> (Visualizar Risco de Projeto)
+Investidor --> (Download dos Documentos de Oferta)
+
+DP --> (Registro/Login)
+DP --> (Preencher Formulário de Projeto)
+DP --> (Upload de Documentos)
+DP --> (Gerenciar fases do projeto)
+
+Administrador --> (Login)
+Administrador --> (Visualizar dados dos usuários)
+Administrador --> (Assegurar Conformidade)
+Administrador --> (Supervisionar Registro de Incorporação)
+Administrador --> (Acesso BI)
+Administrador --> (Aprovar projetos)
+@enduml

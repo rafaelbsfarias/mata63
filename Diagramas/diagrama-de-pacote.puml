@@ -1,0 +1,25 @@
+@startuml
+package "Investidor" {
+  (Registro/Login)
+  (Acesso BI)
+  (Realizar Pagamento)
+  (Visualizar Risco de Projeto)
+  (Download dos Documentos de Oferta)
+}
+
+package "Desenvolvedor de Projetos" {
+  (Registro/Login)
+  (Preencher Formulário de Projeto)
+  (Upload de Documentos)
+  (Gerenciar fases do projeto)
+}
+
+package "Administrador" {
+  (Login)
+  (Visualizar dados dos usuários)
+  (Assegurar Conformidade)
+  (Supervisionar Registro de Incorporação)
+  (Acesso BI)
+  (Aprovar projetos)
+}
+@enduml

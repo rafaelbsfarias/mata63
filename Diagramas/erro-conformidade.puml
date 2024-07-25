@@ -1,0 +1,7 @@
+@startuml
+actor Administrador
+Administrador -> (Revisão do registro de incorporação)
+(Revisão do registro de incorporação) -> (Revisão de Documentação) : <<include>>
+(Revisão do registro de incorporação) -> (Monitorar Processo de Registro) : <<include>>
+(Monitorar Processo de Registro) --> (Atualização do Status do registro)
+@enduml
