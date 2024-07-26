@@ -1,0 +1,85 @@
+@startuml
+left to right direction
+skinparam packageStyle rect
+
+package "Funções Comuns" {
+    usecase "Entrar no Sistema" as UC1
+    usecase "Sair do Sistema" as UC2
+    usecase "Recuperar Senha" as UC3
+    usecase "Notificações" as UC4
+    usecase "Dashboard" as UC5
+    usecase "Gerar Boleto" as UC6
+}
+
+actor Administrador
+actor Empreendedor
+actor Investidor
+
+UC1 -right-> Administrador
+UC2 -right-> Administrador
+UC3 -right-> Administrador
+UC4 -right-> Administrador
+UC5 -right-> Administrador
+UC6 -right-> Administrador
+
+UC1 -right-> Empreendedor
+UC2 -right-> Empreendedor
+UC3 -right-> Empreendedor
+UC4 -right-> Empreendedor
+UC5 -right-> Empreendedor
+UC6 -right-> Empreendedor
+
+UC1 -right-> Investidor
+UC2 -right-> Investidor
+UC3 -right-> Investidor
+UC4 -right-> Investidor
+UC5 -right-> Investidor
+UC6 -right-> Investidor
+
+package "Funções do Administrador" {
+    usecase "Aprovar Projetos" as UC7
+    usecase "Visualizar Usuários" as UC8
+}
+
+package "Funções do Empreendedor" {
+    usecase "Cadastro de Empreendedor" as UC9
+    usecase "Criar Projeto" as UC10
+    usecase "Gerenciar Projetos" as UC11
+    usecase "Enviar Documentos do Projeto" as UC12
+    usecase "Aceitar Investidor" as UC13
+}
+
+package "Funções do Investidor" {
+    usecase "Cadastro de Investidor" as UC14
+    usecase "Listagem de Projetos" as UC15
+    usecase "Contatar Parte Envolvida" as UC16
+    usecase "Detalhar Projeto" as UC17
+    usecase "Mostrar Interesse em um Projeto" as UC18
+    usecase "Painel do Investidor" as UC19
+    usecase "Marcar Projeto como Favorito" as UC20
+    usecase "Ciência de Riscos" as UC21
+    usecase "Contrato" as UC22
+    usecase "Enviar Documentos da Oferta" as UC23
+}
+
+Administrador --> UC7
+Administrador --> UC8
+
+Empreendedor --> UC9
+Empreendedor --> UC10
+Empreendedor --> UC11
+Empreendedor --> UC12
+Empreendedor --> UC13
+
+Investidor --> UC14
+Investidor --> UC15
+Investidor --> UC16
+Investidor --> UC17
+Investidor --> UC18
+Investidor --> UC19
+Investidor --> UC20
+Investidor --> UC21
+Investidor --> UC22
+Investidor --> UC23
+
+@enduml

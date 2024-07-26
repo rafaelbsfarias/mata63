@@ -1,0 +1,33 @@
+@startuml
+title Diagrama de Sequência: Gerar Boleto
+
+actor Usuário
+participant Sistema
+database BancoDeDados
+
+Usuário -> Sistema: Acessar a página do projeto
+Sistema -> BancoDeDados: Verificar participação do usuário
+BancoDeDados --> Sistema: Confirmação de participação
+
+Usuário -> Sistema: Selecionar pagamento via boleto bancário
+Sistema -> BancoDeDados: Recuperar dados do usuário
+
+alt Dados válidos
+    BancoDeDados --> Sistema: Dados adicionais
+    Usuário -> Sistema: Clicar no botão "Gerar Boleto"
+    Sistema -> Sistema: Validar informações
+    alt Validação bem-sucedida
+        Sistema -> Sistema: Gerar boleto bancário
+        Sistema -> Usuário: Exibir boleto gerado
+        Sistema -> Usuário: Oferecer opções para download ou impressão
+        Sistema -> Usuário: Enviar confirmação de boleto gerado
+    else Falha na geração do boleto
+        Sistema -> Usuário: Exibir mensagem de erro
+        Usuário -> Sistema: Tentar novamente ou escolher outro método
+    end
+else Dados incompletos ou inválidos
+    Sistema -> Usuário: Exibir mensagem de erro
+    Usuário -> Sistema: Corrigir e reenviar
+end
+
+@enduml

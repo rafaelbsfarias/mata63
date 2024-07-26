@@ -1,0 +1,59 @@
+@startuml
+actor Empreendedor
+participant "Página de Gerenciamento de Projetos" as PaginaGerenciamento
+participant "Sistema" as Sistema
+participant "Página de Edição de Projeto" as PaginaEdicao
+participant "Página de Adição de Projeto" as PaginaAdicao
+
+Empreendedor -> PaginaGerenciamento: Acessa a página de gerenciamento de projetos
+Sistema -> Sistema: Recupera lista de projetos do empreendedor
+Sistema -> PaginaGerenciamento: Exibe lista de projetos
+
+alt Editar Projeto
+    Empreendedor -> PaginaGerenciamento: Seleciona um projeto para editar
+    PaginaGerenciamento -> PaginaEdicao: Redireciona para a página de edição de projeto
+    Empreendedor -> PaginaEdicao: Modifica as informações do projeto
+    Empreendedor -> PaginaEdicao: Confirma as modificações
+    PaginaEdicao -> Sistema: Envia modificações para validação e salvamento
+    alt Informações válidas
+        Sistema -> Sistema: Salva as modificações
+        Sistema -> PaginaGerenciamento: Atualiza o projeto na lista
+    else Informações inválidas
+        Sistema -> PaginaEdicao: Exibe mensagens de erro e solicita correções
+    end
+end
+
+alt Adicionar Novo Projeto
+    Empreendedor -> PaginaGerenciamento: Clica no botão "Adicionar Novo Projeto"
+    PaginaGerenciamento -> PaginaAdicao: Redireciona para o formulário de adição de novo projeto
+    Empreendedor -> PaginaAdicao: Preenche informações necessárias para o novo projeto
+    Empreendedor -> PaginaAdicao: Confirma a adição do novo projeto
+    PaginaAdicao -> Sistema: Envia informações para validação e salvamento
+    alt Informações válidas
+        Sistema -> Sistema: Salva o novo projeto
+        Sistema -> PaginaGerenciamento: Adiciona o novo projeto à lista de projetos
+    else Informações inválidas
+        Sistema -> PaginaAdicao: Exibe mensagens de erro e solicita correções
+    end
+end
+
+alt Deletar Projeto
+    Empreendedor -> PaginaGerenciamento: Seleciona um projeto para deletar
+    Sistema -> Empreendedor: Exibe mensagem de confirmação de deleção
+    Empreendedor -> Sistema: Confirma a deleção
+    Sistema -> Sistema: Remove o projeto da lista de projetos
+    Sistema -> PaginaGerenciamento: Atualiza a lista de projetos
+end
+
+alt Cancelar Edição
+    Empreendedor -> PaginaGerenciamento: Seleciona um projeto para editar
+    PaginaGerenciamento -> PaginaEdicao: Redireciona para a página de edição de projeto
+    Empreendedor -> PaginaEdicao: Decide cancelar a edição
+    Empreendedor -> PaginaEdicao: Clica no botão "Cancelar"
+    PaginaEdicao -> PaginaGerenciamento: Retorna à lista de projetos sem salvar modificações
+end
+
+alt Erro ao Salvar Alterações
+    Sistema -> PaginaEdicao: Exibe mensagem de erro e mantém informações anteriores
+end
+@enduml

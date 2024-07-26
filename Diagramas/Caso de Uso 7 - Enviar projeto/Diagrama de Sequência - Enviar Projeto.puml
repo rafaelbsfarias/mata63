@@ -1,0 +1,27 @@
+@startuml
+title Diagrama de Sequência: Enviar Projeto
+
+actor Empreendedor
+participant Sistema
+actor Administrador
+
+Empreendedor -> Sistema: Acessa a seção de submissão de projetos
+Empreendedor -> Sistema: Clica em "Enviar Novo Projeto"
+Sistema -> Empreendedor: Exibe formulário de submissão
+Empreendedor -> Sistema: Preenche formulário com dados do projeto
+Empreendedor -> Sistema: Faz upload dos documentos requeridos
+
+loop até que informações e documentos sejam válidos
+    Empreendedor -> Sistema: Clica em "Submeter Projeto"
+    Sistema -> Sistema: Valida informações e documentos
+
+    alt Informações e documentos válidos
+        Sistema -> Empreendedor: Exibe confirmação de submissão
+        Sistema -> Administrador: Notifica sobre novo projeto para avaliação
+    else Informações e documentos não válidos
+        Sistema -> Empreendedor: Exibe erros e solicita correções
+        Empreendedor -> Sistema: Corrige informações e documentos
+    end
+end
+
+@enduml

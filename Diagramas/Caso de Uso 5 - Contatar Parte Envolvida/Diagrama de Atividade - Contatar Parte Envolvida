@@ -1,0 +1,37 @@
+@startuml
+
+title Diagrama de Atividade - Contatar Parte Envolvida
+
+start
+
+:Usuário acessa a página de detalhes do projeto;
+
+:Usuário clica no botão "Entrar em Contato" com o empreendedor;
+
+:Sistema exibe o formulário de contato;
+
+:Usuário preenche o formulário com a mensagem e seus dados de contato;
+
+repeat
+    :Usuário clica no botão de envio;
+
+    if (Formulário completo e válido?) then (Sim)
+        :Sistema valida as informações;
+        
+        if (Envio da mensagem bem-sucedido?) then (Sim)
+            :Sistema envia a mensagem para o empreendedor;
+            :Sistema exibe uma mensagem de confirmação de envio bem-sucedido;
+            stop
+        else (Não)
+            :Sistema exibe mensagem de erro ao enviar a mensagem;
+            :Usuário pode tentar enviar a mensagem novamente mais tarde;
+        endif
+    else (Não)
+        :Sistema exibe mensagens de erro indicando os campos que precisam ser corrigidos;
+        :Usuário corrige as informações;
+    endif
+repeat while (Tentar novamente?)
+
+stop
+
+@enduml

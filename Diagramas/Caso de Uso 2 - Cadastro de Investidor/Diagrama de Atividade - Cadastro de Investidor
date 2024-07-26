@@ -1,18 +1,18 @@
 @startuml
 
-title Diagrama de Atividade - Cadastro de Empreendedor
+title Diagrama de Atividade - Cadastro de Investidor
 
 start
 
-:Empreendedor acessa a página de cadastro;
-:Empreendedor preenche as informações necessárias;
+:Investidor acessa a página de cadastro;
+:Investidor preenche as informações necessárias;
 
 repeat
     :Sistema valida as informações;
     if (Informações válidas?) then (Sim)
-        :Sistema cria uma conta para o empreendedor;
+        :Sistema cria uma conta para o investidor;
         :Sistema envia um e-mail de confirmação;
-        :Empreendedor confirma o cadastro através do e-mail;
+        :Investidor confirma o cadastro através do e-mail;
         stop
     else (Não)
         :Sistema exibe mensagens de erro;
@@ -21,4 +21,3 @@ repeat
 repeat while (Informações corrigidas)
 
 @enduml
-

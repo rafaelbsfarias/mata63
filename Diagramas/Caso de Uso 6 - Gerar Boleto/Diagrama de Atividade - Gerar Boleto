@@ -1,0 +1,26 @@
+@startuml
+title Diagrama de Atividade: Gerar Boleto
+
+start
+
+:Usuário acessa a página de pagamento;
+:Selecionar a opção de pagamento via boleto bancário;
+:System: Exibir formulário para dados adicionais;
+
+:Preencher formulário com dados adicionais;
+:Clicar no botão "Gerar Boleto";
+
+repeat
+    if (Dados válidos?) then (Sim)
+        :Sistema gera o boleto bancário;
+        :Exibir boleto gerado ao usuário;
+        :Oferecer opções para download ou impressão;
+        :Enviar confirmação de boleto gerado;
+stop
+    else (Não)
+        :Exibir mensagens de erro;
+        :Solicitar correção dos dados;
+    endif
+repeat while (Usuário corrige os dados)
+
+@enduml

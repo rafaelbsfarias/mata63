@@ -1,8 +1,0 @@
-@startuml
-actor User
-User -> SistemaWeb : Navegação para gerar depósito
-User -> SistemaWeb : Seleciona tipo de depósito (PIX, boleto, cartão)
-SistemaWeb -> "API banco" : Gera dados para depósito
-"API banco" -> SistemaWeb : Retona dados para depósito
-SistemaWeb -> User : Baixa boleto ou exibe QR Code
-@enduml
