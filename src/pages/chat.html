@@ -31,17 +31,9 @@
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 flex flex-col h-screen">
-    <!-- Top Navigation Bar -->
-    <nav class="bg-white shadow-lg p-4 flex justify-between items-center">
-        <a href="../index.html" class="text-2xl font-semibold text-gray-900">InvestPlatform</a>
-        <div>
-            <a href="../index.html" class="mx-2 text-gray-700 hover:text-gray-900">Início</a>
-            <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Como Funciona</a>
-            <a href="./descoberta-investimento.html" class="mx-2 text-gray-700 hover:text-gray-900">Projetos</a>
-            <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Entrar</a>
-        </div>
-    </nav>
-    
+    <!-- Barra de Navegação -->
+    <div id="main-menu"></div>
+
     <div class="flex-1 flex overflow-hidden">
         <!-- Main Chat Area -->
         <div class="flex-1 flex flex-col">
@@ -134,6 +126,12 @@
                 input.value = '';
             }
         });
+        fetch('./menu-principal.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('main-menu').innerHTML = data;
+            })
+            .catch(error => console.error('Erro ao carregar o menu:', error));
     </script>
 </body>
 </html>
