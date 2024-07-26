@@ -9,10 +9,17 @@
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
         }
         .content-container {
+            flex: 1;
             max-width: 1200px;
             margin: auto;
+            width: 100%;
+            overflow-y: auto; /* Allow vertical scrolling within the content container */
         }
         .card {
             background: white;
@@ -21,27 +28,15 @@
             padding: 16px;
             margin: 16px 0;
         }
-        .project-image {
-            width: 100px;
-            height: 100px;
-            border-radius: 8px;
-            object-fit: cover;
+        canvas {
+            width: 100% !important;
+            height: 300px !important; /* Define a fixed height for the charts */
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800 flex flex-col min-h-screen">
-    <!-- Top Navigation Bar -->
-    <nav class="bg-white shadow-lg p-4 flex justify-between items-center">
-        <a href="#" class="text-2xl font-semibold text-gray-900">InvestPlatform</a>
-        <div>
-            <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Início</a>
-            <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Sobre</a>
-            <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Como Funciona</a>
-            <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Projetos</a>
-            <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Investir Agora</a>
-            <a href="#" class="mx-2 text-gray-700 hover:text-gray-900">Contato</a>
-        </div>
-    </nav>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Barra de Navegação -->
+    <div id="main-menu"></div>
 
     <!-- Content Container -->
     <div class="content-container bg-white shadow-md rounded-lg p-6 mt-6">
@@ -107,7 +102,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Example investment card -->
                 <div class="card flex items-center">
-                    <img src="https://source.unsplash.com/100x100/?building" alt="Imagem do Projeto" class="project-image mr-4">
+                    <img src="" alt="Imagem do Projeto" class="project-image mr-4">
                     <div>
                         <h3 class="text-xl font-semibold">Título do Projeto</h3>
                         <p class="text-gray-700 mb-2">Descrição breve do projeto.</p>
@@ -126,12 +121,12 @@
             <button class="bg-gray-600 text-white py-2 px-4 rounded-lg">Ver Detalhes do Investimento</button>
         </div>
     </div>
-
+    
     <!-- Chart.js from CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         const investmentDistributionCtx = document.getElementById('investmentDistributionChart').getContext('2d');
-        const investmentDistributionChart = new Chart(investmentDistributionCtx, {
+        new Chart(investmentDistributionCtx, {
             type: 'pie',
             data: {
                 labels: ['Projeto A', 'Projeto B', 'Projeto C', 'Projeto D', 'Projeto E'],
@@ -147,7 +142,7 @@
         });
 
         const roiGrowthCtx = document.getElementById('roiGrowthChart').getContext('2d');
-        const roiGrowthChart = new Chart(roiGrowthCtx, {
+        new Chart(roiGrowthCtx, {
             type: 'line',
             data: {
                 labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
@@ -166,7 +161,7 @@
         });
 
         const investmentComparisonCtx = document.getElementById('investmentComparisonChart').getContext('2d');
-        const investmentComparisonChart = new Chart(investmentComparisonCtx, {
+        new Chart(investmentComparisonCtx, {
             type: 'bar',
             data: {
                 labels: ['Projeto A', 'Projeto B', 'Projeto C', 'Projeto D', 'Projeto E'],
@@ -181,6 +176,14 @@
                 maintainAspectRatio: false
             }
         });
+
+        fetch('./menu-principal.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('main-menu').innerHTML = data;
+            })
+            .catch(error => console.error('Erro ao carregar o menu:', error));
+    
     </script>
 </body>
 </html>
