@@ -1,7 +1,7 @@
 @startuml
-actor "Desenvolvedor de Projetosr" as DP
-DP -> (Preencher Formulário de Projeto)
-(Preencher Formulário de Projeto) -> (Entra com detalhes do prtojeto) : <<include>>
-(Preencher Formulário de Projeto) -> (Validaçao dos dados) : <<include>>
-(Validaçao dos dados) --> (Envio do Projeto)
+actor Empreendedor as EMP
+
+EMP -> (Preencher Formulário de Projeto)
+(Preencher Formulário de Projeto) --> (Enviar Documentos do Projeto)
+(Enviar Documentos do Projeto) --> (Alterar Status para "Em Análise")
 @enduml

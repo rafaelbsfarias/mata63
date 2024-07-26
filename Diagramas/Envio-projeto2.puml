@@ -1,0 +1,16 @@
+@startuml
+actor Empreendedor as EMP
+actor Administrador as ADM
+
+EMP -> (Preencher Formulário de Projeto)
+(Preencher Formulário de Projeto) --> (Enviar Documentos do Projeto)
+(Enviar Documentos do Projeto) --> (Alterar Status para "Em Análise")
+
+(Alterar Status para "Em Análise") --> (Solicitar Correção ou Aprovar)
+
+ADM -> (Solicitar Correção ou Aprovar)
+(Solicitar Correção ou Aprovar) --> (Alterar Status para "Requisito Pendente")
+(Solicitar Correção ou Aprovar) --> (Alterar Status para "Aprovado")
+
+(Alterar Status para "Requisito Pendente") -> (Enviar Documentos do Projeto)
+@enduml

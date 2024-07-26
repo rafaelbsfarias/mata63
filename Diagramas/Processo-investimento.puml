@@ -1,0 +1,20 @@
+@startuml
+actor Investor
+actor "Platform" as Platform
+
+Investor -> (Registration on the Platform)
+Investor -> (Discovery of the Offering)
+Investor -> (Downloading the Offering Material)
+Investor -> (Acceptance of the Offering)
+Investor -> (Making the Investment)
+Investor -> (Business Follow-Up)
+Investor -> (Realization of the Result)
+
+(Registration on the Platform) --> Platform
+(Discovery of the Offering) --> Platform
+(Downloading the Offering Material) --> Platform
+(Acceptance of the Offering) --> Platform
+(Making the Investment) --> Platform
+(Business Follow-Up) --> Platform
+(Realization of the Result) --> Platform
+@enduml

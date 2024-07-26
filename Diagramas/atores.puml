@@ -1,23 +1,32 @@
 @startuml
 actor Investidor
-actor "Desenvolvedor de Projetos" as DP
+actor Empreendedor as EMP
 actor Administrador
+actor Sistema
 
-Investidor --> (Registro/Login)
-Investidor --> (Acesso BI)
+Investidor --> (Login)
+Investidor --> (Login)
+Investidor --> (Dashboard do Investidor)
 Investidor --> (Realizar Pagamento)
 Investidor --> (Visualizar Risco de Projeto)
 Investidor --> (Download dos Documentos de Oferta)
+Investidor --> (Descobrir Investimentos)
 
-DP --> (Registro/Login)
-DP --> (Preencher Formulário de Projeto)
-DP --> (Upload de Documentos)
-DP --> (Gerenciar fases do projeto)
+EMP --> (Login)
+EMP --> (Preencher Formulário de Projeto)
+EMP --> (Upload de Documentos)
+EMP --> (Gerenciar fases do projeto)
+EMP --> (Dashboard do EMP)
 
 Administrador --> (Login)
 Administrador --> (Visualizar dados dos usuários)
 Administrador --> (Assegurar Conformidade)
 Administrador --> (Supervisionar Registro de Incorporação)
-Administrador --> (Acesso BI)
+Administrador --> (Dashboard do Investidor ADM)
 Administrador --> (Aprovar projetos)
+
+Sistema --> (Registro de usuário)
+Sistema --> (Esqueci a senha)
+Sistema --> (Notificação de oportunidades para investidores)
+
 @enduml

@@ -1,17 +1,19 @@
 @startuml
 package "Investidor" {
-  (Registro/Login)
-  (Acesso BI)
+  (Login)
+  (Dashboard do Investidor)
   (Realizar Pagamento)
   (Visualizar Risco de Projeto)
   (Download dos Documentos de Oferta)
+  (Descobrir Investimentos)
 }
 
-package "Desenvolvedor de Projetos" {
-  (Registro/Login)
+package "Empreendedor" {
+  (Login)
   (Preencher Formulário de Projeto)
   (Upload de Documentos)
   (Gerenciar fases do projeto)
+  (Dashboard do DP)
 }
 
 package "Administrador" {
@@ -19,7 +21,13 @@ package "Administrador" {
   (Visualizar dados dos usuários)
   (Assegurar Conformidade)
   (Supervisionar Registro de Incorporação)
-  (Acesso BI)
+  (Dashboard do ADM)
   (Aprovar projetos)
+}
+
+package "Sistema" {
+  (Registro de usuário)
+  (Esqueci a senha)
+  (Notificação de oportunidades para investidores)
 }
 @enduml
