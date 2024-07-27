@@ -1,7 +1,0 @@
-@startuml
-actor Empreendedor as EMP
-
-EMP -> (Preencher Formulário de Projeto)
-(Preencher Formulário de Projeto) --> (Enviar Documentos do Projeto)
-(Enviar Documentos do Projeto) --> (Alterar Status para "Em Análise")
-@enduml

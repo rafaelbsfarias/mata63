@@ -1,0 +1,26 @@
+@startuml
+title Diagrama de Atividade: Enviar Projeto
+
+start
+
+:Empreendedor acessa a seção de submissão de projetos;
+:Clicar no botão "Enviar Novo Projeto";
+:Preencher o formulário do projeto;
+:Fazer upload dos documentos requeridos;
+:Revisar informações e documentos;
+:Clicar no botão "Submeter Projeto";
+
+repeat
+    if (Informações e documentos válidos?) then (Sim)
+        :Projeto enviado para avaliação;
+        :Exibir confirmação de submissão;
+        :Notificar administrador para avaliação;
+    else (Não)
+        :Exibir erros e solicitar correções;
+        :Corrigir informações e documentos;
+    endif
+repeat while (Informações e documentos não válidos?)
+
+stop
+
+@enduml

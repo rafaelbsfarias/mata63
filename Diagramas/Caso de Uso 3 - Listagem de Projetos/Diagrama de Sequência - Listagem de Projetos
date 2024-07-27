@@ -1,0 +1,26 @@
+@startuml
+actor Investidor
+participant "Página de Listagem de Projetos" as PaginaListagem
+participant "Sistema" as Sistema
+participant "Página de Detalhes do Projeto" as PaginaDetalhes
+
+Investidor -> PaginaListagem: Acessa a página de listagem de projetos
+alt Projetos Disponíveis
+    Sistema -> Sistema: Recupera lista de projetos
+    Sistema -> PaginaListagem: Exibe lista de projetos com informações básicas
+    loop Aplicar Filtros e Ordenações
+        Investidor -> PaginaListagem: Aplica filtros e ordenações
+        PaginaListagem -> Sistema: Envia filtros e ordenações
+        Sistema -> Sistema: Filtra e ordena a lista de projetos
+        Sistema -> PaginaListagem: Atualiza lista de projetos
+    end
+    Investidor -> PaginaListagem: Seleciona um projeto para visualizar detalhes
+    PaginaListagem -> PaginaDetalhes: Redireciona para a página de detalhes do projeto selecionado
+else Nenhum Projeto Disponível
+    Sistema -> PaginaListagem: Exibe mensagem "Nenhum projeto disponível"
+end
+alt Erro ao Recuperar Lista
+    Sistema -> PaginaListagem: Exibe mensagem de erro
+    PaginaListagem -> Investidor: Solicita que tente novamente mais tarde
+end
+@enduml

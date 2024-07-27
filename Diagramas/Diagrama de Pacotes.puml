@@ -1,0 +1,59 @@
+@startuml
+skinparam packageStyle rect
+
+package "Gerenciamento de Usuário" {
+    [Cadastro]
+    [Autenticação]
+    [Recuperar Senha]
+}
+
+package "Utilitários" {
+    [Validador de Dados]
+    [Gerenciamento de Erros]
+}
+
+package "Comunicação" {
+    [Contatar Parte Envolvida]
+    [Notificação]
+    [Email]
+}
+
+package "Gerenciamento de Projetos" {
+    [Criar Projeto]
+    [Gerenciar Projeto]
+}
+
+package "Gerenciamento de Investimentos" {
+    [Investir]
+    [Painel do Investidor]
+}
+
+package "Administração" {
+    [Gerenciar Usuários]
+    [Aprovar Projetos]
+    [Dashboard]
+}
+
+' Conexões entre pacotes
+
+[Cadastro] --> [Validador de Dados]
+[Autenticação] --> [Validador de Dados]
+[Recuperar Senha] --> [Validador de Dados]
+[Cadastro] --> [Notificação]
+[Recuperar Senha] --> [Email]
+
+[Gerenciar Usuários] --> [Cadastro]
+[Aprovar Projetos] --> [Criar Projeto]
+[Dashboard] --> "Gerenciamento de Investimentos"
+[Dashboard] --> "Gerenciamento de Projetos"
+
+[Investir] --> [Criar Projeto]
+[Gerenciar Projeto] --> [Investir]
+
+[Contatar Parte Envolvida] --> [Email]
+[Notificação] --> [Painel do Investidor]
+
+[Validador de Dados] --> [Gerenciamento de Erros]
+[Gerenciar Projeto] --> [Contatar Parte Envolvida]
+
+@enduml

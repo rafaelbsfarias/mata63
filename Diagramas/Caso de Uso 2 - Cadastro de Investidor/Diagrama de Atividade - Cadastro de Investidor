@@ -1,0 +1,23 @@
+@startuml
+
+title Diagrama de Atividade - Cadastro de Investidor
+
+start
+
+:Investidor acessa a página de cadastro;
+:Investidor preenche as informações necessárias;
+
+repeat
+    :Sistema valida as informações;
+    if (Informações válidas?) then (Sim)
+        :Sistema cria uma conta para o investidor;
+        :Sistema envia um e-mail de confirmação;
+        :Investidor confirma o cadastro através do e-mail;
+        stop
+    else (Não)
+        :Sistema exibe mensagens de erro;
+        :Solicita correções;
+    endif
+repeat while (Informações corrigidas)
+
+@enduml

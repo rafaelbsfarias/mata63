@@ -1,0 +1,22 @@
+@startuml
+actor Empreendedor
+participant "Página de Cadastro" as PaginaCadastro
+participant "Sistema" as Sistema
+participant "Serviço de E-mail" as ServicoEmail
+
+Empreendedor -> PaginaCadastro: Acessa página de cadastro
+PaginaCadastro -> Empreendedor: Exibe formulário de cadastro
+Empreendedor -> PaginaCadastro: Preenche informações (nome, e-mail, senha, etc.)
+PaginaCadastro -> Sistema: Envia informações para validação
+Sistema -> Sistema: Valida informações
+alt Informações válidas
+    Sistema -> Sistema: Cria conta para o empreendedor
+    Sistema -> ServicoEmail: Envia e-mail de confirmação
+    ServicoEmail -> Empreendedor: Envia e-mail de confirmação
+    Empreendedor -> ServicoEmail: Confirma cadastro através do e-mail
+    ServicoEmail -> Sistema: Confirmação recebida
+else Informações inválidas
+    Sistema -> PaginaCadastro: Exibe mensagens de erro e solicita correções
+    PaginaCadastro -> Empreendedor: Solicita correções
+end
+@enduml

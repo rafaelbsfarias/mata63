@@ -1,0 +1,36 @@
+@startuml
+
+title Diagrama de Atividade - Listagem de Projetos
+
+start
+
+:Investidor acessa a página de listagem de projetos;
+
+if (Erro ao recuperar lista?) then (Sim)
+    :Sistema exibe mensagem de erro;
+    :Solicita que o investidor tente novamente mais tarde;
+    stop
+else (Não)
+    if (Projetos disponíveis?) then (Sim)
+        :Sistema exibe a lista de projetos com informações básicas;
+        
+        if (Aplicar filtros?) then (Sim)
+            :Investidor aplica filtros (ex.: localização, tipo de projeto);
+            :Sistema atualiza a lista de projetos conforme filtros aplicados;
+        endif
+
+        if (Aplicar ordenações?) then (Sim)
+            :Investidor aplica ordenações (ex.: data de criação, popularidade);
+            :Sistema atualiza a lista de projetos conforme ordenações aplicadas;
+        endif
+        
+        :Investidor seleciona um projeto para visualizar mais detalhes;
+        :Sistema redireciona para a página de detalhes do projeto;
+    else (Não)
+        :Sistema exibe mensagem "Não há projetos disponíveis no momento";
+    endif
+endif
+
+stop
+
+@enduml

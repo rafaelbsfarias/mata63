@@ -1,0 +1,44 @@
+@startuml
+
+title Diagrama de Atividade - Gerenciamento de Projetos
+
+start
+
+:Empreendedor acessa a página de gerenciamento de projetos;
+
+:Sistema exibe a lista de projetos cadastrados;
+
+repeat
+    if (Selecionar ação) then (Editar projeto)
+        :Empreendedor seleciona um projeto para editar;
+        :Sistema exibe a página de edição de projeto;
+        
+        if (Modificar informações?) then (Sim)
+            :Empreendedor modifica as informações do projeto;
+            :Empreendedor confirma as modificações;
+            :Sistema salva as mudanças e atualiza o projeto na lista;
+        else (Cancelar edição)
+            :Empreendedor clica no botão "Cancelar";
+            :Sistema descarta as modificações e retorna à lista de projetos;
+        endif
+
+    else if (Adicionar novo projeto) then (Sim)
+        :Empreendedor clica no botão "Adicionar Novo Projeto";
+        :Sistema exibe o formulário para adição de novo projeto;
+        :Empreendedor preenche as informações necessárias;
+        :Empreendedor confirma a adição do novo projeto;
+        :Sistema salva o novo projeto e o adiciona à lista de projetos;
+        
+    else if (Deletar projeto) then (Sim)
+        :Empreendedor seleciona um projeto para deletar;
+        :Sistema exibe mensagem de confirmação de deleção;
+        :Empreendedor confirma a deleção;
+        :Sistema remove o projeto da lista de projetos;
+        
+    endif
+
+repeat while (Deseja realizar outra ação?)
+
+stop
+
+@enduml

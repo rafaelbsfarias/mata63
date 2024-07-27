@@ -1,0 +1,44 @@
+@startuml
+actor Usuario
+participant "Página de Detalhes do Projeto" as PaginaDetalhes
+participant "Formulário de Contato" as FormularioContato
+participant "Sistema" as Sistema
+
+Usuario -> PaginaDetalhes: Acessa a página de detalhes do projeto
+Usuario -> PaginaDetalhes: Clica no botão "Entrar em Contato"
+PaginaDetalhes -> FormularioContato: Exibe formulário de contato
+Usuario -> FormularioContato: Preenche formulário com mensagem e dados de contato
+Usuario -> FormularioContato: Clica no botão de envio
+FormularioContato -> Sistema: Envia informações para validação e envio da mensagem
+
+alt Informações válidas
+    Sistema -> Sistema: Valida informações
+    Sistema -> Sistema: Envia mensagem ao empreendedor
+    Sistema -> FormularioContato: Exibe mensagem de confirmação de envio bem-sucedido
+    FormularioContato -> Usuario: Mensagem de confirmação exibida
+else Formulário incompleto ou inválido
+    Sistema -> FormularioContato: Exibe mensagens de erro indicando os campos a serem corrigidos
+    FormularioContato -> Usuario: Solicita correções
+    Usuario -> FormularioContato: Corrige informações e clica no botão de envio novamente
+    FormularioContato -> Sistema: Envia informações corrigidas para validação e envio da mensagem
+    Sistema -> Sistema: Valida informações
+    Sistema -> Sistema: Envia mensagem ao empreendedor
+    Sistema -> FormularioContato: Exibe mensagem de confirmação de envio bem-sucedido
+    FormularioContato -> Usuario: Mensagem de confirmação exibida
+end
+
+alt Falha no envio da mensagem
+    Sistema -> FormularioContato: Exibe mensagem de erro informando o problema
+    FormularioContato -> Usuario: Exibe mensagem de erro
+    Usuario -> FormularioContato: Tenta enviar a mensagem novamente mais tarde
+end
+
+alt Erro ao recuperar dados do formulário
+    Sistema -> FormularioContato: Exibe mensagem de erro e solicita que tente novamente mais tarde
+    FormularioContato -> Usuario: Exibe mensagem de erro
+end
+
+alt Usuário não logado
+    Sistema -> Usuario: Redireciona para a página de login
+end
+@enduml
